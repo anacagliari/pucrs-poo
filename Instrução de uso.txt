@@ -1,0 +1,95 @@
+**************************************************************************************
+Programação Orientada a Objetos - Projeto - Fase 1 - Ana Caroline Cagliari Cappellari
+**************************************************************************************
+
+
+Para utilizar o sistema, é preciso localizar no terminal a pasta onde estão os arquivos e dar o comando node Menu.js
+
+A mensagem abaixo irá aparecer. 
+	/*
+	-------------------------------------------------
+	-------- Bem-vindo ao Sistema de Aviação! -------
+	-------------------------------------------------
+	--------------------- MENU ----------------------
+	-------------------------------------------------
+	(1) Listar todos os pilotos cadastrados.
+	(2) Buscar piloto por matrícula.
+	(3) Listar todas as aerovias cadastradas.
+	(4) Buscar aerovia por origem e destino.
+	(5) Listar todas as aeronaves cadastradas.
+	(6) Encerrar
+	Digite a opção desejada: 
+	*/
+
+O sistema solicitará uma resposta do usuário, dentre as opções informadas no menu.
+
+
+Ao digitar 1, o sistema informará a lista de pilotos cadastrados:
+	/*  
+	Lista de Pilotos:
+	Matricula: 2256, Nome: Vinicius, Habilitação: Ativa   
+	Matricula: 3698, Nome: Frederico, Habilitação: Inativa
+	Matricula: 2533, Nome: Caroline, Habilitação: Ativa   
+	Matricula: 1212, Nome: Camile, Habilitação: Ativa     
+	Matricula: 9699, Nome: Mariana, Habilitação: Inativa  
+	Matricula: 8622, Nome: Leonardo, Habilitação: Inativa 
+	*/
+
+
+Ao digitar 2, o sistema solicitará uma resposta do usuário e espera uma resposta sendo 4 dígitos numéricos.
+Esses dados serão validados e buscados no sistema, retornando a busca com mensagens:
+	/*
+	Digite o numero da matricula: 2256
+	Matricula: 2256, Nome: Vinicius, Habilitação: Ativa
+	*/
+	
+	
+Ao digitar 3, o sistema informará a lista de aerovias cadastradas:
+	/*
+	Lista de Aerovias:
+	ID: 659112, Aeroporto Origem: POA, Aeroporto Destino: GRU, Tamanho da Rota: 865.85 km.
+	ID: 741384, Aeroporto Origem: POA, Aeroporto Destino: FLN, Tamanho da Rota: 376.23 km.
+	ID: 784336, Aeroporto Origem: POA, Aeroporto Destino: GIG, Tamanho da Rota: 1131.41 km.
+	ID: 945844, Aeroporto Origem: GRU, Aeroporto Destino: POA, Tamanho da Rota: 865.85 km.
+	ID: 169852, Aeroporto Origem: FLN, Aeroporto Destino: POA, Tamanho da Rota: 376.23 km.
+	ID: 694552, Aeroporto Origem: GIG, Aeroporto Destino: POA, Tamanho da Rota: 1131.41 km.
+	*/
+	
+	
+Ao digitar 4, o sistema solicitará duas respostas do usuário e espera as resposta sendo 3 dígitos letras.
+Esses dados serão validados e buscados no sistema, retornando a busca com mensagens:
+	/*
+	Digite a origem: poa
+	Digite o destino: gru
+	ID: 659112, Aeroporto Origem: POA, Aeroporto Destino: GRU, Tamanho da Rota: 865.85 km.
+	*/
+	
+	
+Ao digitar 5, o sistema informará a lista de aeronaves cadastradas, identificando se é Particular, Comercial Passageiros ou Comercial Carga:
+	/*
+	Lista de Aeronaves:
+	Aeronave PARTICULAR: Prefixo: PT-AAC, Velocidade de Cruzeiro: 800 km/h, Autonomia: 420 km, Responsável pela manutenção: Vanderlei
+	Aeronave COMERCIAL DE PASSAGEIROS: Prefixo: PR-KJL, Velocidade de Cruzeiro: 750 km/h, Autonomia: 350 km, Nome CIA Aérea: Gol, Máximo de passageiros: 125.
+	Aeronave COMERCIAL DE PASSAGEIROS: Prefixo: PP-OPD, Velocidade de Cruzeiro: 720 km/h, Autonomia: 300 km, Nome CIA Aérea: Azul, Máximo de passageiros: 135.
+	Aeronave COMERCIAL DE CARGA: Prefixo: PP-JHR, Velocidade de Cruzeiro: 680 km/h, Autonomia: 330 km, Nome CIA Aérea: Latam, Peso máximo da carga: 9 t.
+	Aeronave PARTICULAR: Prefixo: PR-LOE, Velocidade de Cruzeiro: 890 km/h, Autonomia: 500 km, Responsável pela manutenção: Fernandinando
+	Aeronave COMERCIAL DE PASSAGEIROS: Prefixo: PS-BFH, Velocidade de Cruzeiro: 705 km/h, Autonomia: 550 km, Nome CIA Aérea: Latam, Máximo de passageiros: 120.
+	*/
+
+
+Ao digitar qualquer caracter que não seja os números listados no menu, o sistema informará a mensagem abaixo:
+	/*
+	Opção inválida!
+	*/
+	
+	
+Ao digitar 6, o sistema enviará mensagem e encerrará o sistema.
+Para iniciar novamente, deve-se digitar node Menu.js no terminal e reiniciar o sistema:
+	/*
+	-------------------------------------------------
+	-----Sistema de aviação agradece sua visita!-----
+	-------------------------------------------------
+	*/
+
+	
+Logo após qualquer interação do usuário, o Menu irá aparecer novamente. Com exceção da resposta '6' que encerrará o sistema.

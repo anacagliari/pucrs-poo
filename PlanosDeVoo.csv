@@ -1,0 +1,4 @@
+id|matricPiloto|idAerovia|prefixoAeroNave|data|altitude|cancelado|slots
+1|2533|169852|PS-BFH|25/03/2024 15:00|30000|false|[15]
+2|1212|741384|PP-OPD|25/03/2024 18:00|29000|false|[18]
+3|2256|659112|PT-AAC|19/05/2024 17:25|26000|false|[17,18]
