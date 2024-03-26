@@ -7,6 +7,7 @@ import nReadlines from "n-readlines";
 Criação da Classe ServicoAeronaves, contendo:
     atributo privado;
     Método Construtor inicializando vetor vazio e após chamando método para carregar a lista de Aeronaves do arquivo .csv;
+    criação de método para retornar aeronave por prefixo;
     criação de método para retornar toda lista de aeronaves cadastradas;
     criação de método privado para carregar o arquivo .csv com os dados das aeronaves, alimentando o vetor do atributo privado aeronaves.
 */
@@ -19,6 +20,10 @@ export class ServicoAeronaves {
         this.#carregarTodasAeronaves();
     }
 
+    /*
+    retorna aeronave pelo prefixo
+    se não localizar, retorna undefined;
+    */
     recuperaPorPrefixo(prefixo) {
         for (let i = 0; i < this.#aeronaves.length; i++) {
             const aeronave = this.#aeronaves[i];

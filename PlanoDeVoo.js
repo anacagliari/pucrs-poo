@@ -1,3 +1,15 @@
+/*Criação da Classe PlanoDeVoo, contendo:
+    atributos privados;
+    Método Construtor;
+    retorno dos atributos privados com os Métodos get;
+    Métodos set;
+    formatação da entrada de data e hora;
+    formatação dos slots para indicar a hora dos slots preenchidos;
+    formatação dos slots para incluir o vetor [] no arquivo csv;
+    formatação status do voo de true/false para "Cancelado"/"Previsto";
+    retorno dos dados com o Método toString;
+    retorno dos dados com o Método toCsv para enviar ao gravaRegistros().*/
+
 export class PlanoDeVoo {
 
     #id;
@@ -8,7 +20,6 @@ export class PlanoDeVoo {
     #altitude;
     #slots;
     #cancelado 
-
 
     constructor(id, matricPiloto, idAerovia, prefixoAeronave, data, altitude, cancelado) {
 
@@ -22,7 +33,6 @@ export class PlanoDeVoo {
         this.#slots = [];
     }
 
-    // Getters
     get id() {
         return this.#id;
     }
@@ -55,7 +65,6 @@ export class PlanoDeVoo {
         return this.#cancelado;
     }
 
-    // Setters
     set id(id) {
         this.#id = id;
     }
@@ -71,7 +80,6 @@ export class PlanoDeVoo {
     set prefixoAeronave(prefixoAeronave) {
         this.#prefixoAeronave = prefixoAeronave;
     }
-
 
     set data(data) {
         this.#data = data;
@@ -109,14 +117,17 @@ export class PlanoDeVoo {
     }
 
     #formataSlotsCvs(slots) {
-        let retorno = "[";
-        for (let i = 0; i < slots.length; i++) {
-            const element = slots[i];
-            retorno += element + ",";
+        if(slots.length > 0) {
+            let retorno = "[";
+            for (let i = 0; i < slots.length; i++) {
+                const element = slots[i];
+                retorno += element + ",";
+            }
+            retorno = retorno.slice(0, -1);
+            retorno += "]"
+            return retorno;
         }
-        retorno = retorno.slice(0, -1);
-        retorno += "]"
-        return retorno;
+        return "[]";
     }
     
     #formataStatusVoo(){

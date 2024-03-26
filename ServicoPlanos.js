@@ -5,7 +5,7 @@ import fs from 'fs';
 /*
 Criação da Classe ServicoPlanos, contendo:
     atributo privado;
-    Método Construtor inicializando vetor vazio e após chamando método para carregar a lista de Planos do arquivo .csv;
+    Método Construtor inicializando vetor vazio, atributo inicializado em 0 e chamando método para carregar a lista de Planos do arquivo .csv;
     criação de método para localizar planos por id;
     criação de método privado para validar se o valor do id pequisado são números e se tem somente quatro dígitos;
     criação de método para retornar toda lista de planos cadastrados;
@@ -39,15 +39,10 @@ export class ServicoPlanos {
     }
 
     /*
-    verifica se a entrada tem tamanho de quatro caracteres.
-    se o valor for diferente de quatro caracteres, lança erro de ID inválido.
     verifica se todos os caracteres são numéricos.
     se o valor não for numérico, lança erro de ID inválido.
     */
     #validaId(id) {
-        if (id.length !== 4) {
-            throw new Error('ID inválido.');
-        }
         for (let i = 0; i < id.length; i++) {
             let caractere = id.charAt(i);
             if (caractere < "0" || caractere > "9") {
@@ -83,8 +78,8 @@ export class ServicoPlanos {
             //separa os valores do arquivo pela vírgula e limpa os espaços em branco
             let valoresDaLinha = linha.trim().split("|");
             //adiciona o plano no vetor de planos com os dados da linha
-            let plano = new PlanoDeVoo(valoresDaLinha[0],valoresDaLinha[1],valoresDaLinha[2],valoresDaLinha[3], this.#stringParaData(valoresDaLinha[4]),valoresDaLinha[5],valoresDaLinha[6] === "true")
-            plano.slots = JSON.parse(valoresDaLinha[7])
+            let plano = new PlanoDeVoo(valoresDaLinha[0],valoresDaLinha[1],valoresDaLinha[2],valoresDaLinha[3], this.#stringParaData(valoresDaLinha[4]),valoresDaLinha[5],valoresDaLinha[6] === "true");
+            plano.slots = JSON.parse(valoresDaLinha[7]);
             this.#planos.push(plano);
             if (valoresDaLinha[0] > this.#maiorId) {
                 this.#maiorId = valoresDaLinha[0];
@@ -102,15 +97,21 @@ export class ServicoPlanos {
         return plano.id;
     }
 
+    /*
+    Cria e retorna um ID por plano de voo
+    */
     #criaIdPlanoDeVoo() {
         this.#maiorId++;
         return this.#maiorId;
     }
 
+    /*
+    Trata data de entrada de String para Data, dividindo em data dd/mm/aaaa e hora hh:mm
+    */
     #stringParaData(stringDataHora) {
-        const partes = stringDataHora.split(' '); // Dividindo a string em data e hora
-        const dataPartes = partes[0].split('/'); // Dividindo a parte da data em dia, mês e ano
-        const horaPartes = partes[1].split(':'); // Dividindo a parte da hora em horas e minutos
+        const partes = stringDataHora.split(' ');
+        const dataPartes = partes[0].split('/');
+        const horaPartes = partes[1].split(':');
     
         const dia = parseInt(dataPartes[0], 10);
         const mes = parseInt(dataPartes[1], 10) - 1; // Os meses em JavaScript são baseados em zero
@@ -121,6 +122,9 @@ export class ServicoPlanos {
         return new Date(ano, mes, dia, hora, minutos);
     }
 
+    /*
+    Monta o conteúdo a ser gravado no arquivo e manda salvar.
+    */
     gravaRegistros(){
         let textoParaGravacao = "id|matricPiloto|idAerovia|prefixoAeroNave|data|altitude|cancelado|slots";
         for (let i = 0; i < this.#planos.length; i++) {
@@ -134,6 +138,9 @@ export class ServicoPlanos {
         });
     }
 
+    /*
+    Efetua em si a escrita do conteudo enviado por parâmetro desejado
+    */
     escreverArquivo(caminho, conteudo) {
         return new Promise((resolve, reject) => {
             fs.writeFile(caminho, conteudo, (err) => {

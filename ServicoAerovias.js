@@ -6,6 +6,7 @@ Criação da Classe ServicoAerovias, contendo:
     atributo privado;
     Método Construtor inicializando vetor vazio e após chamando método para carregar a lista de Aerovias do arquivo .csv;
     criação de método para localizar aerovia por origem e destino;
+    criação de método para localizar aerovia por ID;
     criação de método privado para validar se o valor da origem e do destino pequisada são letras e se tem somente três dígitos;
     criação de método para retornar toda lista de aerovias cadastradas;
     criação de método privado para carregar o arquivo .csv com os dados das aerovias, alimentando o vetor do atributo privado aerovias.
@@ -25,7 +26,6 @@ export class ServicoAerovias {
     se os valores digitados pelo usuário corresponde algum valor dos campos origem e destino no mesmo cadastrado, retorna a aerovia;
     se não localizar, retorna undefined;
     */
-
     recupera(origem, destino) {
         origem = origem.toUpperCase();
         destino = destino.toUpperCase();
@@ -43,14 +43,12 @@ export class ServicoAerovias {
     }
 
     /*
-    altera valor de entrada para letras em caixa alta;
-    percorre toda a lista de aerovias visando corresponder origem e destino;
-    se os valores digitados pelo usuário corresponde algum valor dos campos origem e destino no mesmo cadastrado, retorna a aerovia;
+    percorre toda a lista de aerovias visando corresponder ID;
+    se os valores digitados pelo usuário corresponde algum valor do campo ID no mesmo cadastrado, retorna a aerovia;
     se não localizar, retorna undefined;
     */
-
     recuperaPorId(id) {
-          for (let i = 0; i < this.#aerovias.length; i++) {
+        for (let i = 0; i < this.#aerovias.length; i++) {
             const aerovia = this.#aerovias[i];
             if (aerovia.id === id) {
                 return aerovia;

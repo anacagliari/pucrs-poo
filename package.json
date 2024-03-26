@@ -5,7 +5,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest --coverage",
+    "start": "node Menu.js"
   },
   "keywords": [],
   "author": "",
@@ -14,5 +15,16 @@
     "bycontract": "^2.0.11",
     "n-readlines": "^1.0.1",
     "prompt-sync": "^4.2.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.24.3",
+    "@babel/preset-env": "^7.24.3",
+    "babel-jest": "^29.7.0",
+    "jest": "^29.7.0"
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.js$": "babel-jest"
+    }
   }
 }

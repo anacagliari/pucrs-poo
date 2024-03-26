@@ -1,3 +1,9 @@
+/*Criação da Classe Ocupacao, contendo:
+    atributos privados;
+    Método Construtor;
+    retorno dos atributos privados com os Métodos get;
+    retorno dos dados com o Método toString.*/
+
 export class Ocupacao {
 
     #idPlanoDeVoo;
